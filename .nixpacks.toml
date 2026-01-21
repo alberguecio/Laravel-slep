@@ -25,4 +25,4 @@ cmds = [
 ]
 
 [start]
-cmd = "set -e && mkdir -p storage/framework/sessions storage/framework/views storage/framework/cache storage/logs bootstrap/cache && chmod -R 777 storage bootstrap/cache && echo '=== Limpiando config ===' && php artisan config:clear && echo '=== Ejecutando migraciones ===' && php artisan migrate --force && echo '=== Iniciando servidor en puerto ${PORT:-8000} ===' && exec php artisan serve --host=0.0.0.0 --port=${PORT:-8000}"
+cmd = "sh -c 'mkdir -p storage/framework/sessions storage/framework/views storage/framework/cache storage/logs bootstrap/cache && chmod -R 777 storage bootstrap/cache && php artisan config:clear && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=${PORT:-8000}'"
