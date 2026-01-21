@@ -38,6 +38,7 @@ composer.phar
 !routes/console.php
 !config/**/*.php
 !database/**/*.php
+!resources/**/*.blade.php
 
 # Documentación temporal
 *.md
