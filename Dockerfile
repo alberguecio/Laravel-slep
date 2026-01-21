@@ -27,20 +27,18 @@ WORKDIR /var/www/html
 # Copiar archivos de composer primero (para cache de Docker)
 COPY composer.json composer.lock ./
 
-# Instalar dependencias de PHP (con manejo de errores)
-RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist --no-scripts || \
-    (composer clear-cache && composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist --no-scripts)
+# Instalar dependencias de PHP SIN scripts (los scripts requieren el código completo)
+RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist --no-scripts --no-autoloader
 
 # Copiar el resto de la aplicación
 COPY . .
 
-# Crear directorios necesarios y configurar permisos
+# Crear directorios necesarios y configurar permisos ANTES de ejecutar scripts
 RUN mkdir -p storage/framework/sessions storage/framework/views storage/framework/cache storage/logs bootstrap/cache \
-    && chmod -R 775 storage bootstrap/cache \
-    || true
+    && chmod -R 775 storage bootstrap/cache
 
-# Ejecutar scripts de composer después de copiar todo
-RUN composer dump-autoload --optimize || true
+# Generar autoloader y ejecutar scripts ahora que tenemos todo el código
+RUN composer dump-autoload --optimize --no-dev
 
 # Exponer puerto (Render usa la variable $PORT)
 EXPOSE 8000
