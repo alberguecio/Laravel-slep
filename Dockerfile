@@ -40,10 +40,11 @@ COPY config/ ./config/
 COPY database/ ./database/
 COPY routes/ ./routes/
 COPY public/ ./public/
+COPY resources/ ./resources/
 COPY artisan ./
 
 # Crear directorios opcionales si no existen
-RUN mkdir -p resources storage || true
+RUN mkdir -p storage || true
 
 # Verificar que los archivos críticos existen
 RUN ls -la routes/ && echo "✓ routes/ existe" || echo "✗ ERROR: routes/ no encontrado"
