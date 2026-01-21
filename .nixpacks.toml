@@ -1,0 +1,24 @@
+[phases.setup]
+nixPkgs = ["php82", "php82Packages.composer", "nginx", "libmysqlclient", "nodejs_18", "npm-9_x"]
+
+[phases.install]
+cmds = [
+  "mkdir -p /var/log/nginx /var/cache/nginx",
+  "mkdir -p bootstrap/cache storage/framework/sessions storage/framework/views storage/framework/cache storage/logs",
+  "chmod -R 777 bootstrap/cache storage",
+  "composer install --ignore-platform-reqs --no-scripts"
+]
+
+[phases.build]
+cmds = [
+  "mkdir -p bootstrap/cache storage/framework/sessions storage/framework/views storage/framework/cache storage/logs",
+  "chmod -R 777 bootstrap/cache storage",
+  "composer install --no-dev --optimize-autoloader --no-interaction --no-scripts",
+  "composer dump-autoload --optimize --no-dev",
+  "php artisan config:cache",
+  "php artisan route:cache",
+  "php artisan view:cache"
+]
+
+[start]
+cmd = "mkdir -p storage/framework/sessions storage/framework/views storage/framework/cache storage/logs bootstrap/cache && chmod -R 777 storage bootstrap/cache && php artisan config:clear && php artisan cache:clear && php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=$PORT"
