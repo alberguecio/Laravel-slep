@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "nombre": "Ancud",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 2,
+        "nombre": "Castro",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 3,
+        "nombre": "Chonchi",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 4,
+        "nombre": "Curaco de Vélez",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 5,
+        "nombre": "Dalcahue",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 6,
+        "nombre": "Puqueldón",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 7,
+        "nombre": "Queilén",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 8,
+        "nombre": "Quellón",
+        "created_at": null,
+        "updated_at": "2025-11-04 12:36:07"
+    },
+    {
+        "id": 9,
+        "nombre": "Quemchi",
+        "created_at": null,
+        "updated_at": null
+    },
+    {
+        "id": 10,
+        "nombre": "Quinchao",
+        "created_at": null,
+        "updated_at": null
+    }
+]

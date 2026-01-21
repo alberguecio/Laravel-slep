@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# Crear archivo .env desde variables de entorno de Elastic Beanstalk
+cd /var/app/current
+
+# Obtener variables de entorno
+APP_KEY=$(/opt/elasticbeanstalk/bin/get-config environment -k APP_KEY)
+APP_ENV=$(/opt/elasticbeanstalk/bin/get-config environment -k APP_ENV)
+APP_DEBUG=$(/opt/elasticbeanstalk/bin/get-config environment -k APP_DEBUG)
+LOG_CHANNEL=$(/opt/elasticbeanstalk/bin/get-config environment -k LOG_CHANNEL)
+DB_CONNECTION=$(/opt/elasticbeanstalk/bin/get-config environment -k DB_CONNECTION)
+DB_HOST=$(/opt/elasticbeanstalk/bin/get-config environment -k DB_HOST)
+DB_PORT=$(/opt/elasticbeanstalk/bin/get-config environment -k DB_PORT)
+DB_DATABASE=$(/opt/elasticbeanstalk/bin/get-config environment -k DB_DATABASE)
+DB_USERNAME=$(/opt/elasticbeanstalk/bin/get-config environment -k DB_USERNAME)
+DB_PASSWORD=$(/opt/elasticbeanstalk/bin/get-config environment -k DB_PASSWORD)
+
+# Crear archivo .env
+cat > .env << EOF
+APP_NAME=SLEP_Chiloe
+APP_ENV=${APP_ENV:-production}
+APP_KEY=${APP_KEY}
+APP_DEBUG=${APP_DEBUG:-false}
+APP_URL=http://slep-chiloe-env.eba-wqngtwgc.sa-east-1.elasticbeanstalk.com
+
+LOG_CHANNEL=${LOG_CHANNEL:-errorlog}
+
+DB_CONNECTION=${DB_CONNECTION:-mysql}
+DB_HOST=${DB_HOST}
+DB_PORT=${DB_PORT:-3306}
+DB_DATABASE=${DB_DATABASE}
+DB_USERNAME=${DB_USERNAME}
+DB_PASSWORD=${DB_PASSWORD}
+EOF
+
+# Ajustar permisos
+chown webapp:webapp .env
+chmod 600 .env
+
+# Asegurar permisos correctos en storage y bootstrap/cache (si existen)
+if [ -d storage ]; then
+    chown -R webapp:webapp storage 2>/dev/null || true
+    chmod -R 775 storage 2>/dev/null || true
+fi
+if [ -d bootstrap/cache ]; then
+    chown -R webapp:webapp bootstrap/cache 2>/dev/null || true
+    chmod -R 775 bootstrap/cache 2>/dev/null || true
+fi
+
+

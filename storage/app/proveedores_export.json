@@ -1,0 +1,242 @@
+[
+    {
+        "id": 1,
+        "nombre": "M&M CONSTRUCCION E INSPECCION DE OBRAS SPA",
+        "rut": "76.516.396-K",
+        "direccion": "Pedro Montt Nro 123, Quemchi Chilo??",
+        "telefono": "973071372",
+        "email": "mym.consultorspa@gmail.com",
+        "created_at": null,
+        "updated_at": "2025-11-05 11:33:09"
+    },
+    {
+        "id": 5,
+        "nombre": "NELLY ELIZABETH MOLINA MARIPI",
+        "rut": "13.399.610-9",
+        "direccion": "Chilo??",
+        "telefono": "976533758",
+        "email": "constructoraquitripulli@gmail.com",
+        "created_at": null,
+        "updated_at": "2025-11-05 11:33:37"
+    },
+    {
+        "id": 6,
+        "nombre": "BLANCO SERVICIOS E INVERSIONES SPA",
+        "rut": "76.654.452-5",
+        "direccion": null,
+        "telefono": null,
+        "email": null,
+        "created_at": null,
+        "updated_at": "2025-11-05 11:32:40"
+    },
+    {
+        "id": 7,
+        "nombre": "ESTEBAN GUILLERMO SALDIVIA LEAL",
+        "rut": "11.923.621-5",
+        "direccion": null,
+        "telefono": null,
+        "email": null,
+        "created_at": null,
+        "updated_at": "2025-11-05 11:33:04"
+    },
+    {
+        "id": 8,
+        "nombre": "MANTENCIONES LUIS FELIPE MAYER ORTEGA E.I.R.L.",
+        "rut": "77.818.106-1",
+        "direccion": null,
+        "telefono": null,
+        "email": null,
+        "created_at": null,
+        "updated_at": "2025-11-05 11:33:27"
+    },
+    {
+        "id": 9,
+        "nombre": "SERGIO LEONARDO HUENUPI SOTO",
+        "rut": "14.569.329-2",
+        "direccion": null,
+        "telefono": null,
+        "email": null,
+        "created_at": null,
+        "updated_at": "2025-11-05 11:31:35"
+    },
+    {
+        "id": 10,
+        "nombre": "VICTOR BARRIA CONSTRUCTORA E.I.R.L.",
+        "rut": "76.050.411-4",
+        "direccion": "RUTA 5 SUR KM 1163,5 - Castro",
+        "telefono": null,
+        "email": null,
+        "created_at": null,
+        "updated_at": "2025-11-05 11:31:10"
+    },
+    {
+        "id": 11,
+        "nombre": "AMATT I2C SPA",
+        "rut": "77.309.116-1",
+        "direccion": null,
+        "telefono": null,
+        "email": null,
+        "created_at": null,
+        "updated_at": "2025-11-05 11:32:36"
+    },
+    {
+        "id": 12,
+        "nombre": "COMERCIALIZADORA RUBIO SPA",
+        "rut": "77.319.611-7",
+        "direccion": null,
+        "telefono": null,
+        "email": null,
+        "created_at": null,
+        "updated_at": "2025-11-05 11:32:52"
+    },
+    {
+        "id": 13,
+        "nombre": "WILSON LEONIDAS OJEDA C??RDENAS",
+        "rut": "13.170.218-3",
+        "direccion": null,
+        "telefono": null,
+        "email": null,
+        "created_at": null,
+        "updated_at": "2025-11-05 11:31:07"
+    },
+    {
+        "id": 14,
+        "nombre": "RENE EDUARDO MUNOZ AGUILAR",
+        "rut": "15.926.917-5",
+        "direccion": null,
+        "telefono": null,
+        "email": null,
+        "created_at": null,
+        "updated_at": "2025-11-05 11:31:03"
+    },
+    {
+        "id": 15,
+        "nombre": "COMERCIALIZADORA JOVI SPA",
+        "rut": "77.369.042-1",
+        "direccion": null,
+        "telefono": null,
+        "email": null,
+        "created_at": null,
+        "updated_at": "2025-11-05 11:32:30"
+    },
+    {
+        "id": 16,
+        "nombre": "SOCIEDAD AGR??COLA HUINCACARA LIMITADA",
+        "rut": "76.739.147-1",
+        "direccion": null,
+        "telefono": null,
+        "email": null,
+        "created_at": null,
+        "updated_at": "2025-11-05 11:31:22"
+    },
+    {
+        "id": 17,
+        "nombre": "CONTRUCTORA JUAN ERARDO VASQUEZ ROGEL E.I.R.L.",
+        "rut": "77.809.406-1",
+        "direccion": null,
+        "telefono": null,
+        "email": null,
+        "created_at": null,
+        "updated_at": "2025-11-05 11:33:00"
+    },
+    {
+        "id": 18,
+        "nombre": "SIXTO DEL CARMEN DE LA CRUZ BAHAMONDE",
+        "rut": "8.488.083-3",
+        "direccion": null,
+        "telefono": null,
+        "email": null,
+        "created_at": null,
+        "updated_at": "2025-11-05 11:31:30"
+    },
+    {
+        "id": 19,
+        "nombre": "COMERCIALIZADORA DE PRODUCTOS DE ILUMINACION ILUMINA LIMITADA",
+        "rut": "77.883.900-8",
+        "direccion": null,
+        "telefono": null,
+        "email": null,
+        "created_at": null,
+        "updated_at": "2025-11-05 11:32:47"
+    },
+    {
+        "id": 20,
+        "nombre": "SOCIEDAD COMERCIAL Y DE INVERSIONES CORP PREMIER L",
+        "rut": "76.473.108-5",
+        "direccion": null,
+        "telefono": null,
+        "email": null,
+        "created_at": null,
+        "updated_at": "2025-11-05 11:31:18"
+    },
+    {
+        "id": 21,
+        "nombre": "PABLO ANDR??S AMPUERO NAVARRO",
+        "rut": "15.288.694-2",
+        "direccion": null,
+        "telefono": null,
+        "email": null,
+        "created_at": null,
+        "updated_at": "2025-11-05 11:30:53"
+    },
+    {
+        "id": 22,
+        "nombre": "CHILOE CONTROL PLAGAS SPA",
+        "rut": "77.104.198-1",
+        "direccion": null,
+        "telefono": null,
+        "email": null,
+        "created_at": null,
+        "updated_at": "2025-11-05 11:32:43"
+    },
+    {
+        "id": 24,
+        "nombre": "REKOSOL INGENIERIA SPA",
+        "rut": "77.522.275-1",
+        "direccion": "RAMON FREIRE 140, DALCAHUE",
+        "telefono": null,
+        "email": null,
+        "created_at": null,
+        "updated_at": "2025-11-05 11:30:58"
+    },
+    {
+        "id": 25,
+        "nombre": "OSCAR EDUARDO GOYE CASTILLO",
+        "rut": "18.742.681-2",
+        "direccion": null,
+        "telefono": "979056093",
+        "email": null,
+        "created_at": null,
+        "updated_at": "2025-11-05 11:33:23"
+    },
+    {
+        "id": 26,
+        "nombre": "COMERCIALIZADORA, INMOBILIARIA Y ASESOR??AS PUERTO NUEVO SPA",
+        "rut": "77.627.425-9",
+        "direccion": null,
+        "telefono": null,
+        "email": null,
+        "created_at": null,
+        "updated_at": "2025-11-05 11:32:56"
+    },
+    {
+        "id": 27,
+        "nombre": "TRANSPORTES SAAVEDRA SPA",
+        "rut": "77.215.893-9",
+        "direccion": null,
+        "telefono": null,
+        "email": null,
+        "created_at": null,
+        "updated_at": "2025-11-05 11:31:14"
+    },
+    {
+        "id": 29,
+        "nombre": "SLEP",
+        "rut": "61.981.360-K",
+        "direccion": null,
+        "telefono": null,
+        "email": null,
+        "created_at": "2025-10-30 11:12:00",
+        "updated_at": "2025-11-05 11:31:27"
+    }
+]
