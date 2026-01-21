@@ -40,8 +40,8 @@ COPY . .
 RUN mkdir -p storage/framework/sessions storage/framework/views storage/framework/cache storage/logs bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
 
-# Generar autoloader y ejecutar scripts ahora que tenemos todo el código
-RUN composer dump-autoload --optimize --no-dev
+# Generar autoloader SIN ejecutar scripts (los scripts se ejecutarán al iniciar la app)
+RUN composer dump-autoload --optimize --no-dev --no-scripts || true
 
 # Exponer puerto (Render usa la variable $PORT)
 EXPOSE 8000
