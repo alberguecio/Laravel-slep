@@ -33,8 +33,10 @@ COPY composer.json composer.lock ./
 # Instalar dependencias de PHP SIN scripts (los scripts requieren el código completo)
 RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist --no-scripts --no-autoloader
 
-# Copiar el resto de la aplicación
+# Copiar el resto de la aplicación (asegurando que routes/ se copie)
 COPY . .
+# Verificar que los archivos críticos existen
+RUN ls -la routes/ || echo "Warning: routes directory not found"
 
 # Crear directorios necesarios y configurar permisos ANTES de ejecutar scripts
 RUN mkdir -p storage/framework/sessions storage/framework/views storage/framework/cache storage/logs bootstrap/cache \
