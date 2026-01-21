@@ -41,6 +41,7 @@ composer.phar
 !resources/**/*.blade.php
 !create-admin-user.php
 !check-db-status.php
+!check-env.php
 
 # Documentación temporal
 *.md

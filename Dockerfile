@@ -62,6 +62,7 @@ EXPOSE 8000
 # Copiar scripts para crear usuario inicial y diagnóstico
 COPY create-admin-user.php ./
 COPY check-db-status.php ./
+COPY check-env.php ./
 
 # Script de inicio que asegura permisos, ejecuta migraciones y crea usuario inicial
 RUN echo '#!/bin/sh\n\
@@ -72,6 +73,8 @@ php artisan config:clear 2>/dev/null || true\n\
 php artisan cache:clear 2>/dev/null || true\n\
 echo "=== Ejecutando migraciones ==="\n\
 php artisan migrate --force || echo "⚠️  Error en migraciones"\n\
+echo "=== Verificando variables de entorno ==="\n\
+php check-env.php || echo "⚠️  Error en verificación de env"\n\
 echo "=== Verificando estado de base de datos ==="\n\
 php check-db-status.php || echo "⚠️  Error en diagnóstico"\n\
 echo "=== Verificando usuario inicial ==="\n\
