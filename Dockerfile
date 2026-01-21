@@ -9,6 +9,8 @@ RUN apt-get update && apt-get install -y \
     git \
     curl \
     libpng-dev \
+    libjpeg-dev \
+    libfreetype-dev \
     libonig-dev \
     libxml2-dev \
     zip \
