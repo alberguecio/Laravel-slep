@@ -73,6 +73,8 @@ php artisan config:clear 2>/dev/null || true\n\
 php artisan cache:clear 2>/dev/null || true\n\
 echo "=== Ejecutando migraciones ==="\n\
 php artisan migrate --force || echo "⚠️  Error en migraciones"\n\
+echo "=== Generando JWT_SECRET si no existe ==="\n\
+php artisan jwt:secret --always-no 2>/dev/null || php artisan jwt:secret --force 2>/dev/null || echo "⚠️  No se pudo generar JWT_SECRET"\n\
 echo "=== Verificando variables de entorno ==="\n\
 php check-env.php || echo "⚠️  Error en verificación de env"\n\
 echo "=== Verificando estado de base de datos ==="\n\

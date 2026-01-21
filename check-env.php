@@ -19,6 +19,7 @@ try {
     echo "DB_DATABASE: " . env('DB_DATABASE', 'no definido') . "\n";
     echo "DB_USERNAME: " . env('DB_USERNAME', 'no definido') . "\n";
     echo "DB_PASSWORD: " . (env('DB_PASSWORD') ? '***definido***' : 'no definido') . "\n";
+    echo "\nJWT_SECRET: " . (env('JWT_SECRET') ? '***definido***' : '✗ NO DEFINIDO - Esto causará errores en login') . "\n";
     
     // Verificar si hay DB_URL
     $dbUrl = env('DB_URL');
