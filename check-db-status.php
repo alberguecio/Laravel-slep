@@ -1,23 +1,33 @@
 <?php
 
-require __DIR__.'/vendor/autoload.php';
+define('LARAVEL_START', microtime(true));
 
-$app = require_once __DIR__.'/bootstrap/app.php';
-$app->make(\Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+require __DIR__.'/vendor/autoload.php';
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 
-echo "=== DIAGNÓSTICO DE BASE DE DATOS ===\n\n";
-
 try {
+    $app = require_once __DIR__.'/bootstrap/app.php';
+    
+    // Bootstrap Laravel
+    $kernel = $app->make(\Illuminate\Contracts\Console\Kernel::class);
+    $kernel->bootstrap();
+    
+    echo "=== DIAGNÓSTICO DE BASE DE DATOS ===\n\n";
+    
     // Verificar conexión
     echo "1. Verificando conexión a la base de datos...\n";
-    DB::connection()->getPdo();
-    echo "   ✓ Conexión exitosa\n\n";
+    try {
+        DB::connection()->getPdo();
+        echo "   ✓ Conexión exitosa\n\n";
+    } catch (\Exception $e) {
+        echo "   ✗ Error de conexión: " . $e->getMessage() . "\n";
+        exit(1);
+    }
 } catch (\Exception $e) {
-    echo "   ✗ Error de conexión: " . $e->getMessage() . "\n";
+    echo "✗ Error al inicializar Laravel: " . $e->getMessage() . "\n";
     exit(1);
 }
 
