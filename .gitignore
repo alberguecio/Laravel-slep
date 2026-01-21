@@ -33,7 +33,9 @@ composer.phar
 !public/index.php
 !bootstrap/app.php
 !app/**/*.php
-!routes/**/*.php
+!routes/api.php
+!routes/web.php
+!routes/console.php
 !config/**/*.php
 !database/**/*.php
 
