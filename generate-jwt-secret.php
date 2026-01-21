@@ -29,17 +29,12 @@ try {
     $kernel = $app->make(\Illuminate\Contracts\Console\Kernel::class);
     $kernel->bootstrap();
     
-    // Limpiar caché de configuración para que Laravel recargue JWT_SECRET
-    if (file_exists(base_path('bootstrap/cache/config.php'))) {
-        @unlink(base_path('bootstrap/cache/config.php'));
-    }
-    
     // Verificar que la configuración se cargó correctamente
     $configSecret = config('jwt.secret');
-    if (empty($configSecret)) {
+    if (empty($configSecret) && !empty(getenv('JWT_SECRET'))) {
         // Forzar actualización de configuración
         config(['jwt.secret' => getenv('JWT_SECRET')]);
-        echo "✓ Configuración de JWT actualizada\n";
+        echo "✓ Configuración de JWT actualizada en memoria\n";
     }
 } catch (\Exception $e) {
     echo "⚠️  Error al inicializar Laravel: " . $e->getMessage() . "\n";
