@@ -59,8 +59,9 @@ RUN composer dump-autoload --optimize --no-dev --no-scripts || true
 # Exponer puerto (Render usa la variable $PORT)
 EXPOSE 8000
 
-# Copiar script para crear usuario inicial
+# Copiar scripts para crear usuario inicial y diagnóstico
 COPY create-admin-user.php ./
+COPY check-db-status.php ./
 
 # Script de inicio que asegura permisos, ejecuta migraciones y crea usuario inicial
 RUN echo '#!/bin/sh\n\
@@ -70,9 +71,11 @@ chmod -R 777 storage bootstrap/cache\n\
 php artisan config:clear 2>/dev/null || true\n\
 php artisan cache:clear 2>/dev/null || true\n\
 echo "=== Ejecutando migraciones ==="\n\
-php artisan migrate --force 2>/dev/null || echo "⚠️  Error en migraciones (puede ser que ya estén ejecutadas)"\n\
+php artisan migrate --force || echo "⚠️  Error en migraciones"\n\
+echo "=== Verificando estado de base de datos ==="\n\
+php check-db-status.php || echo "⚠️  Error en diagnóstico"\n\
 echo "=== Verificando usuario inicial ==="\n\
-php create-admin-user.php 2>/dev/null || echo "⚠️  No se pudo crear usuario inicial"\n\
+php create-admin-user.php || echo "⚠️  No se pudo crear usuario inicial"\n\
 echo "=== Iniciando servidor ==="\n\
 exec php artisan serve --host=0.0.0.0 --port=${PORT:-8000}' > /start.sh && chmod +x /start.sh
 
