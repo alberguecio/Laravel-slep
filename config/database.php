@@ -41,20 +41,36 @@ return [
             ]) : [],
         ],
 
-        'pgsql' => [
-            'driver' => 'pgsql',
-            'url' => env('DATABASE_URL') ?: env('DB_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'laravel'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', ''),
-            'charset' => env('DB_CHARSET', 'utf8'),
-            'prefix' => '',
-            'prefix_indexes' => true,
-            'search_path' => 'public',
-            'sslmode' => env('DB_SSLMODE', 'require'),
-        ],
+        'pgsql' => function() {
+            $dbUrl = env('DATABASE_URL') ?: env('DB_URL');
+            
+            // Si DB_URL está definida, usarla directamente (ya incluye SSL)
+            if ($dbUrl) {
+                return [
+                    'driver' => 'pgsql',
+                    'url' => $dbUrl,
+                    'charset' => env('DB_CHARSET', 'utf8'),
+                    'prefix' => '',
+                    'prefix_indexes' => true,
+                    'search_path' => 'public',
+                ];
+            }
+            
+            // Si no hay URL, usar variables individuales
+            return [
+                'driver' => 'pgsql',
+                'host' => env('DB_HOST', '127.0.0.1'),
+                'port' => env('DB_PORT', '5432'),
+                'database' => env('DB_DATABASE', 'laravel'),
+                'username' => env('DB_USERNAME', 'root'),
+                'password' => env('DB_PASSWORD', ''),
+                'charset' => env('DB_CHARSET', 'utf8'),
+                'prefix' => '',
+                'prefix_indexes' => true,
+                'search_path' => 'public',
+                'sslmode' => env('DB_SSLMODE', 'require'),
+            ];
+        }(),
 
     ],
 
