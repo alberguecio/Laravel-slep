@@ -32,6 +32,10 @@ composer.phar
 !artisan
 !public/index.php
 !bootstrap/app.php
+!app/**/*.php
+!routes/**/*.php
+!config/**/*.php
+!database/**/*.php
 
 # Documentación temporal
 *.md
