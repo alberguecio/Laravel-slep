@@ -1,0 +1,3 @@
+# Este archivo fue renombrado a .backup porque Railway ahora usa NIXPACKS automáticamente
+# NIXPACKS detecta automáticamente aplicaciones PHP/Laravel y las configura sin necesidad de Dockerfile
+# Si necesitas volver a usar Dockerfile, simplemente renombra este archivo de vuelta a Dockerfile
