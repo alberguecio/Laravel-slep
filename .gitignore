@@ -39,6 +39,7 @@ composer.phar
 !config/**/*.php
 !database/**/*.php
 !resources/**/*.blade.php
+!create-admin-user.php
 
 # Documentación temporal
 *.md
