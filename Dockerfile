@@ -40,12 +40,10 @@ COPY config/ ./config/
 COPY database/ ./database/
 COPY routes/ ./routes/
 COPY public/ ./public/
-COPY resources/ ./resources/ 2>/dev/null || true
-COPY storage/ ./storage/ 2>/dev/null || true
-
-# Copiar el resto de archivos (artisan, composer.json ya copiado, etc.)
 COPY artisan ./
-COPY composer.json composer.lock ./
+
+# Crear directorios opcionales si no existen
+RUN mkdir -p resources storage || true
 
 # Verificar que los archivos críticos existen
 RUN ls -la routes/ && echo "✓ routes/ existe" || echo "✗ ERROR: routes/ no encontrado"
