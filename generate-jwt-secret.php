@@ -18,11 +18,22 @@ if (empty($jwtSecret)) {
     $_ENV['JWT_SECRET'] = $newSecret;
     
     // Escribir a archivo temporal para que el script shell lo lea
-    file_put_contents('/tmp/jwt_secret.txt', $newSecret);
+    $tmpFile = '/tmp/jwt_secret.txt';
+    $written = @file_put_contents($tmpFile, $newSecret);
+    if ($written === false) {
+        // Intentar con directorio alternativo
+        $tmpFile = sys_get_temp_dir() . '/jwt_secret.txt';
+        $written = @file_put_contents($tmpFile, $newSecret);
+    }
     
-    echo "✓ JWT_SECRET generado: $newSecret\n";
-    echo "⚠️  IMPORTANTE: Copia este valor a la variable JWT_SECRET en Railway para persistencia:\n";
-    echo "JWT_SECRET=$newSecret\n";
+    if ($written !== false) {
+        echo "✓ JWT_SECRET generado: $newSecret\n";
+        echo "⚠️  IMPORTANTE: Copia este valor a la variable JWT_SECRET en Railway para persistencia:\n";
+        echo "JWT_SECRET=$newSecret\n";
+    } else {
+        echo "✓ JWT_SECRET generado: $newSecret\n";
+        echo "⚠️  No se pudo escribir archivo temporal, pero JWT_SECRET está en el entorno\n";
+    }
 } else {
     echo "✓ JWT_SECRET ya está configurado\n";
 }
