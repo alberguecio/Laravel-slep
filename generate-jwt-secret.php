@@ -17,9 +17,12 @@ if (empty($jwtSecret)) {
     putenv("JWT_SECRET=$newSecret");
     $_ENV['JWT_SECRET'] = $newSecret;
     
+    // Escribir a archivo temporal para que el script shell lo lea
+    file_put_contents('/tmp/jwt_secret.txt', $newSecret);
+    
     echo "✓ JWT_SECRET generado: $newSecret\n";
     echo "⚠️  IMPORTANTE: Copia este valor a la variable JWT_SECRET en Railway para persistencia:\n";
-    echo "   JWT_SECRET=$newSecret\n";
+    echo "JWT_SECRET=$newSecret\n";
 } else {
     echo "✓ JWT_SECRET ya está configurado\n";
 }
