@@ -31,6 +31,7 @@ composer.phar
 *.php
 !artisan
 !public/index.php
+!bootstrap/app.php
 
 # Documentación temporal
 *.md
