@@ -1,5 +1,9 @@
 [phases.setup]
 nixPkgs = ["php82", "php82Packages.composer", "nginx", "libmysqlclient", "nodejs_18", "npm-9_x"]
+cmds = [
+  "mkdir -p bootstrap/cache storage/framework/sessions storage/framework/views storage/framework/cache storage/logs",
+  "chmod -R 777 bootstrap/cache storage"
+]
 
 [phases.install]
 cmds = [
@@ -14,7 +18,7 @@ cmds = [
   "mkdir -p bootstrap/cache storage/framework/sessions storage/framework/views storage/framework/cache storage/logs",
   "chmod -R 777 bootstrap/cache storage",
   "composer install --no-dev --optimize-autoloader --no-interaction --no-scripts",
-  "composer dump-autoload --optimize --no-dev",
+  "composer dump-autoload --optimize --no-dev --no-scripts",
   "php artisan config:cache",
   "php artisan route:cache",
   "php artisan view:cache"
